@@ -1,0 +1,5 @@
+package com.shipmentservice.exception;
+
+public class ShipmentNotFoundException {
+
+}

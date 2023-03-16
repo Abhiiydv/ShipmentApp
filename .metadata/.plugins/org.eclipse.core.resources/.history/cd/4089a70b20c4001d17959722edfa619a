@@ -1,0 +1,52 @@
+package com.shipmentservice.controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shipmentservice.entity.ShipmentDetails;
+import com.shipmentservice.service.ShipmentService;
+
+@RestController
+public class ShipmentController {
+
+	@Autowired
+	private ShipmentService shipmentService;
+
+	// save shipment
+	@PostMapping("/create-shipment")
+	public ResponseEntity<ShipmentDetails> saveShipment(@RequestBody ShipmentDetails s){
+		
+		ShipmentDetails savedShipmentDetails = shipmentService.createShipment(s);
+		 return new ResponseEntity<>(savedShipmentDetails, HttpStatus.OK);
+	}
+
+	@GetMapping("/id")
+    public Optional<ShipmentDetails> getShipment(@PathVariable("id") Long id ){
+		
+		Optional<ShipmentDetails> existingShipmentDetails = shipmentService.getShipmentDetailsById(id);
+		 return existingShipmentDetails;
+	}
+	@DeleteMapping("/delete/{id}")
+	public void deleteShipment(@PathVariable("id") Long id) {
+		
+		shipmentService.deleteById(id);
+		
+		
+	}
+	@PutMapping("/update-shipment/{id}")
+	public ResponseEntity<ShipmentDetails> updateShipment(@RequestBody ShipmentDetails s,@PathVariable("id") Long id){ 
+    ShipmentDetails updatedShipmentDetails =  shipmentService.updateShipment(id, s);
+    return new ResponseEntity<>(updatedShipmentDetails,HttpStatus.OK);
+	}
+}

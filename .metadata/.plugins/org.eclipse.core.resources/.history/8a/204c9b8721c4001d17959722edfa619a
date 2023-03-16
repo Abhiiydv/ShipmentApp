@@ -1,0 +1,5 @@
+package com.shipmentservice.model;
+
+public class ErrorResponse {
+
+}

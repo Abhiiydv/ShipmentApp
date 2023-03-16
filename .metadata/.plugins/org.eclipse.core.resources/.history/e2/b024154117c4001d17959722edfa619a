@@ -1,0 +1,28 @@
+package com.shipmentservice.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.shipmentservice.entity.ShipmentDetails;
+import com.shipmentservice.service.ShipmentService;
+
+@RestController
+public class ShipmentController {
+
+	@Autowired
+	private ShipmentService shipmentService;
+	
+	//save shipment
+	@PostMapping
+	public ResponseEntity<T> saveShipment(@RequestBody ShipmentDetails s){
+		
+		ShipmentDetails savedShipmentDetails = shipmentService.createShipment(s);
+		return ResponseEntity.ok(savedShipmentDetails).status(HttpStatus.ACCEPTED);
+	}
+	
+}

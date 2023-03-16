@@ -1,0 +1,5 @@
+package com.shipmentservice.entity;
+
+public class ShipmentDetails {
+
+}

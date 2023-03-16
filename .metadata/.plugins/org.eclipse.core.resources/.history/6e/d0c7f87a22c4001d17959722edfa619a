@@ -1,0 +1,56 @@
+package com.shipmentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.shipmentservice.entity.ShipmentDetails;
+import com.shipmentservice.exception.ShipmentNotFoundException;
+import com.shipmentservice.repository.ShipmentRepository;
+
+@Service
+public class ShipmentServiceImpl implements ShipmentService {
+
+	@Autowired
+	private ShipmentRepository shipmentRepository;
+	
+	@Override
+	public ShipmentDetails createShipment(ShipmentDetails shipmentDetails) {
+		// TODO Auto-generated method stub
+		ShipmentDetails savedShipment = shipmentRepository.save(shipmentDetails);
+		
+		return savedShipment;
+	}
+
+	@Override
+	public void deleteById(Long shipmentId) {
+		// TODO Auto-generated method stub
+		ShipmentDetails savedShipment = shipmentRepository.findById(shipmentId).orElseThrow(
+	            () -> new ShipmentNotFoundException("Shipment for given id not found "+shipmentId,"SHIPMENT_NOT_FOUND"));
+		if(savedShipment!=null) {
+			shipmentRepository.deleteById(shipmentId);
+		}
+		
+	}
+
+	@Override
+	public ShipmentDetails getShipmentDetailsById(Long id) {
+		// TODO Auto-generated method stub
+	ShipmentDetails savedShipment = shipmentRepository.findById(id).orElseThrow(
+            () -> new ShipmentNotFoundException("Shipment for given id not found "+id,"SHIPMENT_NOT_FOUND"));
+		return savedShipment;
+	}
+
+	@Override
+	public ShipmentDetails updateShipment(Long shipmentId, ShipmentDetails shipmentDetails) {
+		// TODO Auto-generated method stub
+
+		ShipmentDetails existingShipment = shipmentRepository.findById(shipmentId).orElse(null);
+		existingShipment.setCurrentLocation(shipmentDetails.getCurrentLocation());
+		existingShipment.setCurrentStatus(shipmentDetails.getCurrentStatus());
+		shipmentRepository.save(existingShipment);
+			return existingShipment;
+		
+	}
+}

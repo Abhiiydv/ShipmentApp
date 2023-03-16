@@ -1,0 +1,17 @@
+package com.shipmentservice.service;
+
+import java.util.Optional;
+
+import com.shipmentservice.entity.ShipmentDetails;
+
+public interface ShipmentService {
+
+	ShipmentDetails createShipment(ShipmentDetails shipmentDetails);
+	
+	Optional<ShipmentDetails> getShipmentDetailsById(Long id); 
+	
+	public void deleteById(Integer shipmentId);
+	
+	public ShipmentDetails updateShipment(Integer shipmentId, ShipmentDetails shipmentDetails);
+	
+}

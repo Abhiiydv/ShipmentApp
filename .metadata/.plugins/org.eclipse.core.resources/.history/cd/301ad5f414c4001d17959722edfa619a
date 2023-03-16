@@ -1,0 +1,42 @@
+package com.shipmentservice.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.shipmentservice.entity.ShipmentDetails;
+import com.shipmentservice.repository.ShipmentRepository;
+
+@Service
+public class ShipmentServiceImpl implements ShipmentService {
+
+	@Autowired
+	private ShipmentRepository shipmentRepository;
+	
+	@Override
+	public ShipmentDetails createShipment(ShipmentDetails shipmentDetails) {
+		// TODO Auto-generated method stub
+		ShipmentDetails savedShipment = shipmentRepository.save(shipmentDetails);
+		
+		return null;
+	}
+
+	@Override
+	public void deleteById(Integer shipmentId) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Optional<ShipmentDetails> getShipmentDetailsById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ShipmentDetails updateShipment(Integer shipmentId, ShipmentDetails shipmentDetails) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

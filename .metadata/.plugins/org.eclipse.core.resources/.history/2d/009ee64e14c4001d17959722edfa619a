@@ -1,0 +1,5 @@
+package com.shipmentservice.service;
+
+public interface ShipmentService {
+
+}
