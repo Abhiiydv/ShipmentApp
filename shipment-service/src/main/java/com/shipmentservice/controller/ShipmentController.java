@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shipmentservice.entity.ShipmentDetails;
 import com.shipmentservice.service.ShipmentService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class ShipmentController {
 
@@ -25,7 +28,7 @@ public class ShipmentController {
 
 	// save shipment
 	@PostMapping("/create-shipment")
-	public ResponseEntity<ShipmentDetails> saveShipment(@RequestBody ShipmentDetails s){
+	public ResponseEntity<ShipmentDetails> saveShipment(@Valid @RequestBody ShipmentDetails s){
 		
 		ShipmentDetails savedShipmentDetails = shipmentService.createShipment(s);
 		 return new ResponseEntity<>(savedShipmentDetails, HttpStatus.OK);

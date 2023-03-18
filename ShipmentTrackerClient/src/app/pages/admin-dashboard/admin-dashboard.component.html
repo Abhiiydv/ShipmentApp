@@ -1,0 +1,198 @@
+<div class="container">
+
+
+  <div class="row align-items-center g-lg-5 py-3">
+
+    <div class="col-md-10 mx-auto col-lg-8">
+      <form class="p-4 p-md-5 border rounded-2 bg-light" #f="ngForm" (ngSubmit)="f.form.valid && register()">
+
+        <div class="alert alert-primary mt-1" *ngIf="errorMessage">
+          {{errorMessage}}
+        </div>
+
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="source" class="form-control" id="source" [(ngModel)]="shipment.source"
+            #source="ngModel" placeholder="Source" required>
+          <label for="floatingInput">Source</label>
+          <div class="alert-danger" *ngIf="!source.valid && f.submitted">
+            Source is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="destination" class="form-control" id="destination" [(ngModel)]="shipment.destination"
+            #destination="ngModel" placeholder="Destination" required>
+          <label for="floatingInput">Destination</label>
+          <div class="alert-danger" *ngIf="!destination.valid && f.submitted">
+            Destination is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="date" name="dateOfDispatch" class="form-control" id="dateOfDispatch"
+            [(ngModel)]="shipment.dateOfDispatch" #dateOfDispatch="ngModel"  placeholder="Date of dispatch" required>
+          <label for="floatingInput">Dispatch date</label>
+          <div class="alert-danger" *ngIf="!dateOfDispatch.valid && f.submitted">
+            Dispatch date.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="date" name="dateOfReceiving" class="form-control" id="dateOfReceiving"
+            [(ngModel)]="shipment.dateOfReceiving" #dateOfReceiving="ngModel" placeholder="Receiving date" required>
+          <label for="floatingInput">Receiving Date</label>
+          <div class="alert-danger" *ngIf="!dateOfReceiving.valid && f.submitted">
+            Receiving date.
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select class="form-select form-select-md mb-3" #country="ngModel" [(ngModel)]="shipment.country"
+              name="country" id="role">
+              <option value="India">India</option>
+              <option value="America">America</option>
+            </select>
+
+            <div class="alert-danger" *ngIf="!country.valid && f.submitted">
+              Country is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="currentLocation" class="form-control" id="currentLocation"
+            [(ngModel)]="shipment.currentLocation" #currentLocation="ngModel" placeholder="Current Location" required>
+          <label for="floatingInput">Current Location</label>
+          <div class="alert-danger" *ngIf="!currentLocation.valid && f.submitted">
+            Current Location is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="currentStatus" class="form-control" id="currentStatus"
+            [(ngModel)]="shipment.currentStatus" #currentStatus="ngModel" placeholder="Current status" required>
+          <label for="floatingInput">Current Status</label>
+          <div class="alert-danger" *ngIf="!currentStatus.valid && f.submitted">
+            Current status is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="senderName" class="form-control" id="senderName" [(ngModel)]="shipment.senderName"
+            #senderName="ngModel" placeholder="Sender Name" required>
+          <label for="floatingInput">Sender Name</label>
+          <div class="alert-danger" *ngIf="!senderName.valid && f.submitted">
+            Sender Name is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="senderAddress" class="form-control" id="senderAddress"
+            [(ngModel)]="shipment.senderAddress" #senderAddress="ngModel" placeholder="Sender Address" required>
+          <label for="floatingInput">Sender Address</label>
+          <div class="alert-danger" *ngIf="!senderAddress.valid && f.submitted">
+            Sender Address is required.
+          </div>
+
+
+        </div>
+       
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="receiverName" class="form-control" id="receiverName"
+            [(ngModel)]="shipment.receiverName" #receiverName="ngModel" placeholder="Receiver Name" required>
+          <label for="floatingInput">Receiver Name</label>
+          <div class="alert-danger" *ngIf="!receiverName.valid && f.submitted">
+            Receiver name is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="receiverAddress" class="form-control" id="receiverAddress"
+            [(ngModel)]="shipment.receiverAddress" #receiverAddress="ngModel" placeholder="Receiver Address" required>
+          <label for="floatingInput">Receiver Address</label>
+          <div class="alert-danger" *ngIf="!receiverAddress.valid && f.submitted">
+            Receiver Address is required.
+          </div>
+         
+
+        </div> <div class="form-floating display-flex mb-2">
+          <input type="text" name="phone" class="form-control" id="phone" [(ngModel)]="shipment.phone" #phone="ngModel"
+            placeholder="Phone" required>
+          <label for="floatingInput">Phone</label>
+          <div class="alert-danger" *ngIf="!phone.valid && f.submitted">
+            Phone is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="detailsOfPackage" class="form-control" id="detailsOfPackage"
+            [(ngModel)]="shipment.detailsOfPackage" #detailsOfPackage="ngModel" placeholder="Package Details" required>
+          <label for="floatingInput">Package Details</label>
+          <div class="alert-danger" *ngIf="!detailsOfPackage.valid && f.submitted">
+            Package Details is required.
+          </div>
+
+
+        </div>
+
+        <div class="form-floating display-flex mb-2">
+          <input type="text" name="modeOfTransport" class="form-control" id="modeOfTransport"
+            [(ngModel)]="shipment.modeOfTransport" #modeOfTransport="ngModel" placeholder="Transport Mode" required>
+          <label for="floatingInput">Transport Mode</label>
+          <div class="alert-danger" *ngIf="!modeOfTransport.valid && f.submitted">
+            Transport Mode is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="Double" name="weight" class="form-control" id="weight" [(ngModel)]="shipment.weight"
+            #weight="ngModel" placeholder="Weight" required>
+          <label for="floatingInput">Weight</label>
+          <div class="alert-danger" *ngIf="!weight.valid && f.submitted">
+            Weight is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="number" name="quantity" class="form-control" id="quantity" [(ngModel)]="shipment.quantity"
+            #quantity="ngModel" placeholder="Quantity" required>
+          <label for="floatingInput">Quantity</label>
+          <div class="alert-danger" *ngIf="!quantity.valid && f.submitted">
+            Quantity is required.
+          </div>
+
+
+        </div>
+        <div class="form-floating display-flex mb-2">
+          <input type="number" name="ammount" class="form-control" id="ammount" [(ngModel)]="shipment.ammount"
+            #ammount="ngModel" placeholder="Ammount " required>
+          <label for="floatingInput">Ammount</label>
+          <div class="alert-danger" *ngIf="!ammount.valid && f.submitted">
+            Ammount is required.
+          </div>
+
+
+        </div>
+
+        <button class="w-100 btn mt-5 btn-lg btn-primary" type="submit">Submit</button>
+        <hr>
+
+
+      </form>
+      <hr>
+
+
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+.card {
+    width: 40%;
+    height: 550px;
+}
+.alert-danger{
+    margin-top: 4px;
+    color: rgb(7, 1, 1);
+    background-color: rgb(193, 185, 185);
+}
+.btn-secondary{
+    width: 100%;
+}

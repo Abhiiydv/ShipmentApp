@@ -1,0 +1,29 @@
+<div class="navbar navbar-expand">
+  <a class="navbar-brand p-5" href="#">
+    eLogistic
+  </a>
+  <div class="navbar-nav ms-auto me-5" *ngIf="!currentUser?.id">
+    <div class="nav-item">
+      <a [routerLink]="['/signup']" routerLinkActive="active" class="nav-link">Sign Up</a>
+
+    </div>
+    <div class="nav-item ms-5">
+      <a [routerLink]="['/login']" routerLinkActive="active" class="nav-link">Sign In</a>
+    </div>
+  </div>
+
+  <div class="navbar-nav me-auto" *ngIf="currentUser?.id">
+    <div class="nav-item">
+      <a [routerLink]="['/member']" routerLinkActive="active" class="nav-link">
+        <span>  </span> {{ currentUser.userName}}
+      </a>
+    </div>
+
+    <div class="nav-item ms-5">
+      <a (click)="logOut()" routerLinkActive="active" class="nav-link" style="cursor: pointer;">Sign Out</a>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

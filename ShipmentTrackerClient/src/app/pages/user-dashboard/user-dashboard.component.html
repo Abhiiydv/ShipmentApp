@@ -1,0 +1,45 @@
+<div class="container text-center">
+
+    <div class="row mt-5">
+
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6 text-center">
+<h4>Track your shipment by shipment number.</h4>
+
+<div class="row banner d-flex justify-content-center align-items-center">
+
+    <div class="col-md-8">
+
+      <div class="search mt-5">
+        <i class="fa fa-search"></i>
+        <input type="number" class="form-control" [(ngModel)]="enteredValue1" name="enteredValue1" placeholder="Enter shipment number..">
+      <button class="btn srchbtn bg-primary btn-block" (click)="fetchShipmentDetails(enteredValue1)" >Search</button>
+       
+      </div>
+      
+    </div>
+  
+ </div>
+
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>
+<div class="container shadow-lg mt-5 mb-5"  *ngIf="s.shipment_id">
+<div class="row">
+   
+        <pre>{{s|json}}</pre>
+    
+        
+
+</div>
+
+   
+</div>
+
+

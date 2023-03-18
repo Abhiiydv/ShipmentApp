@@ -1,0 +1,13 @@
+.card{
+    max-width: 40%;
+    height: 500px;
+}
+button{
+    margin: 5px;
+    width: 100px;
+}
+.alert-danger{
+    margin-top: 4px;
+    color: rgb(7, 1, 1);
+    background-color: rgb(193, 185, 185);
+}
